@@ -3,11 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>POPCAT CLASSIC</title>
+    <style>
+
+        /*容器 box 高度100vh flex排版方向column 置中*/
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /*容器樣式 背景顏色 #bdaa90*/
+        .container {
+            background-color: #bdaa90;
+        }
+        /*標題 box 寬度80% 上方間距 2em*/
+        .title {
+            width: 80%;
+            margin-top: 2em;
+        }
+        /*文字 box 寬度100%*/
+        .cat-img {
+            width: 100%;
+        }
+        /*文字樣式 文字置中 文字白色 大小80px -webkit-text-stroke 3px 黑色*/
+        .cat-img {
+            text-align: center;
+            color: white;
+            font-size: 80px;
+            -webkit-text-stroke: 3px black;
+        }
+        /*文字 div 背景圖片 用 id 設定imgs/p.png 圖片靠下 填滿容器contain 不重複*/
+        #p {
+            background-image: url('imgs/p.png');
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        /*body box 編距為0*/
+        body {
+            margin: 0;
+        }
+        /*文字 div 排版填滿剩餘空間*/
+        .cat-img {
+            flex: 1;
+        }
+        /*字型 sans-serif*/
+        body {
+            font-family: sans-serif;
+        }
+        /*防止文字被選取*/
+        .cat-img {
+            user-select: none;
+        }
+        .cat-img{
+               flex-grow: 1;
+           }
+        /*標題 box 最大寬度 600px*/
+        .title {
+            max-width: 600px;
+        }
+        /*文字 box 最大寬度 800px*/
+        .cat-img {
+            max-width: 800px;
+
+        /*新贈文字 div 背景圖片 用 id 設定 imgs/op.png*/
+        #p {
+            background-image: url('imgs/p.png');
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #op{
+            background-image: url('imgs/op.png');
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;}
+        };
+
+    </style>
+
 </head>
 <body>
-
-<img src="imgs/popcat.svg" alt="popcat" />
+<div class="container">
+<img class="title" src="imgs/popcat.svg" alt="popcat" />
 <div class="cat-img" id="p">0</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const img = document.querySelector('img');
+        img.addEventListener('click', function() {
+            img.classList.add('pop');
+            setTimeout(function() {
+                img.classList.remove('pop');
+            }, 100);
+        });
+    });
+</script>
 
 </body>
 </html>
